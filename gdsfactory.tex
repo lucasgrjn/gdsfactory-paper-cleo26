@@ -56,17 +56,7 @@ Unlike constrained logic-driven electronic design flows~\cite{bogaerts2018}, int
 
 \section{Layout Design}
 
-GDSFactory implements cells as Python functions returning a \texttt{Component} class with polygons, port metadata, and convenience methods. Using KLayout's C++ geometry engine~\cite{klayout}, users define PCells with a functional programming approach:
-
-The \texttt{@gf.cell} decorator handles caching, eliminating redundant regeneration. Port metadata enables automatic routing via \texttt{get\_route} and \texttt{get\_bundle} functions that connect components following \texttt{CrossSection} specifications (Fig.~\ref{fig:components}).
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4cm]{figures/gdsfactory_components/mzi_with_bend.pdf}
-\includegraphics[width=4cm]{figures/gdsfactory_components/nxn.pdf}
-\caption{(a) MZI with Euler bend showing port connections. (b) Routed $n\!\times\!n$ components using S-bends.}
-\label{fig:components}
-\end{figure}
+GDSFactory implements cells as Python functions returning a \texttt{Component} class with polygons, port metadata, and convenience methods. Using KLayout's C++ geometry engine~\cite{klayout}, users define parametric cells through a functional programming approach where the \texttt{@gf.cell} decorator handles caching to eliminate redundant regeneration. Port metadata enables automatic routing via \texttt{route_bundle} that defines an automated route between groups of ports based on their types (optical, electrical, etc.).
 
 \section{Device Simulation}
 
